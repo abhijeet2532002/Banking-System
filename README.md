@@ -35,11 +35,6 @@ The Banking System project is a comprehensive software solution that facilitates
 
 To set up and use the Banking System project, follow the installation instructions provided in the project documentation. It includes details on system requirements, dependencies, and how to run the application.
 
-# Banking System Project
-
-## Overview
-The Banking System project is a comprehensive system that provides a range of banking services to customers, including ATM card issuance, checkbook requests, account management, loan processing, and transaction recording. The system is designed to support multiple branches, each serving multiple account holders and customers.
-
 ## Directory Structure
 Here's an overview of the directory structure of the project:
 
