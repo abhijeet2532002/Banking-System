@@ -1,5 +1,16 @@
 # Banking System Project
-
+$ tree
+.
+├── dir1
+│   ├── file11.ext
+│   └── file12.ext
+├── dir2
+│   ├── file21.ext
+│   ├── file22.ext
+│   └── file23.ext
+├── dir3
+├── file_in_root.ext
+└── README.md
 ## Project Overview
 
 The Banking System project is a comprehensive software solution that facilitates various banking operations for both customers and the bank itself. This README provides an overview of the project's key features and functionalities.
