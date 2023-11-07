@@ -1,8 +1,9 @@
 import express from'express';
 import database from'./config/MongooseConfig.js';
 import router from './router/Main_Router.js';
-
-const port = 9697;
+import dotenv from 'dotenv';
+dotenv.config();
+const port = process.env.PORT;
 
 const app = express();
 const db = new database();
