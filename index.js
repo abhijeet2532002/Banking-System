@@ -10,5 +10,5 @@ const db = new database();
 
 app.use('/',router);
 app.listen(port,() => {
-    console.log("App Is Running On PORT Number ",port);
+    console.log("App Is Running On  ",port);
 })
