@@ -1,20 +1,4 @@
-├── src
-│   ├── controller
-│   │   ├── **/*.css
-│   ├── views
-│   ├── model
-│   ├── index.js
-├── public
-│   ├── css
-│   │   ├── **/*.css
-│   ├── images
-│   ├── js
-│   ├── index.html
-├── dist (or build
-├── node_modules
-├── package.json
-├── package-lock.json 
-└── .gitignore
+# Banking System
 ## Project Overview
 
 The Banking System project is a comprehensive software solution that facilitates various banking operations for both customers and the bank itself. This README provides an overview of the project's key features and functionalities.
