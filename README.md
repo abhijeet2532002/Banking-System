@@ -84,7 +84,7 @@ Here's an overview of the directory structure of the project:
     - `Main_Router.js`: The main router that aggregates all other routes.
   - `index.js`: The entry point of the project.
   - `.env`: Environment configuration file.
-  - `.gitignore`: A file specifying which files should be ignored by Git.
+  - `.gitignore`: A file specifying which files should stored information regarding to Git.
   - `package-lock.json` and `package.json`: Dependency files specifying project dependencies.
 
 ## Functionality
