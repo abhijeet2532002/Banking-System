@@ -6,7 +6,7 @@ class Database {
     }
 
     connect() {
-        mongoose.connect('mongodb://127.0.0.1:27017/Banking', {
+        mongoose.connect('mongodb+srv://ASJ:OR17J4454@cluster0.a1i0vnk.mongodb.net/Banking', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
