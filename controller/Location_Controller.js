@@ -1,4 +1,4 @@
-import location from "../db/Location.js";
+import location from "../model/Location.js";
 import Middleware from '../config/Middleware.js';
 
 export default class LocationController {

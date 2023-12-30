@@ -22,7 +22,7 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    account:{
+    account: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Account'
     }

@@ -1,4 +1,4 @@
-import AccountType from '../db/Account_Type.js';
+import AccountType from '../model/Account_Type.js';
 
 export default class AccountTypeController {
     async createAccountType(req, res) {

@@ -1,6 +1,6 @@
-import Account from '../db/Account.js';
+import Account from '../model/Account.js';
 import Middleware from '../config/Middleware.js';
-import Customer from '../db/Customer.js';
+import Customer from '../model/Customer.js';
 
 export default class AccountController {
     async createAccount(req, res) {
@@ -24,22 +24,37 @@ export default class AccountController {
         }
     }
 
-    async getAccount(req,res) {
+    async getAccount(req, res) {
         const returnMiddle = new Middleware();
         try {
-            returnMiddle.returnFunction(res, await Account.findOne({accountNo: req.params.accountNo}));
+            returnMiddle.returnFunction(res, await Account.findOne({ accountNo: req.params.accountNo }));
         } catch (error) {
-            returnMiddle.returnFunction(res,error);
+            returnMiddle.returnFunction(res, error);
         }
     }
 
     async getAllAccount(req, res) {
         const returnMiddle = new Middleware();
         try {
-            returnMiddle.returnFunction(res, await Account.find({}).populate('type'));
+            const accountData = await Account.find({}).populate([{
+                    path: 'user',
+                    populate: {
+                        path: 'branch',
+                        populate: {
+                            path: 'location'
+                        }
+                    }
+                }, 'type', {
+                    path: 'ATM',
+                    populate: {
+                        path: 'type'
+                    }
+                }]);
+
+            returnMiddle.returnFunction(res, accountData);
         } catch (error) {
             returnMiddle.returnFunction(res, error);
         }
     }
-    
+
 }

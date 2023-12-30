@@ -8,7 +8,7 @@ const AC_Schema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Customer",
+        ref: "customer",
         unique: true
     },
     type: {
@@ -25,12 +25,17 @@ const AC_Schema = new mongoose.Schema({
     },
     ATM: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "ATM_Card"
+        ref: "ATM"
     }],
     status: {
         type: String,
+        default: "OPEN",
         required: true
-    }
+    },
+    transaction: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Transaction"
+    }]
 }, {
     timestamps: true
 })

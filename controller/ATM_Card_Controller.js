@@ -1,6 +1,6 @@
-import Account from '../db/Account.js';
-import ATM_Type from '../db/ATM_Type.js';
-import ATM_Card from '../db/ATM_Card.js';
+import Account from '../model/Account.js';
+import ATM_Type from '../model/ATM_Type.js';
+import ATM_Card from '../model/ATM_Card.js';
 import MiddleWare from '../config/Middleware.js';
 
 export default class ATMCard {

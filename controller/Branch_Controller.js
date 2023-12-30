@@ -1,5 +1,5 @@
-import Branch from '../db/Branch.js';
-import Location from '../db/Location.js';
+import Branch from '../model/Branch.js';
+import Location from '../model/Location.js';
 import Middleware from '../config/Middleware.js'
 
 export default class BranchController {

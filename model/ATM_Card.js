@@ -19,7 +19,11 @@ const cardChema = new mongoose.Schema({
     ATM_NO: {
         type: String,
         required: true
-    }
+    },
+    transaction: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Transaction"
+    }]
 }, {
     timestamps: true
 });

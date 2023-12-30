@@ -1,7 +1,7 @@
-import Customer from '../db/Customer.js';
+import Customer from '../model/Customer.js';
 import middleware from '../config/Middleware.js';
-import Branch from '../db/Branch.js';
-import Account from '../db/Account.js';
+import Branch from '../model/Branch.js';
+import Account from '../model/Account.js';
 
 export default class CustomerController {
     async createCustomer(req, res) {

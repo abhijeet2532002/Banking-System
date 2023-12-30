@@ -1,4 +1,4 @@
-import ATM_Type from "../db/ATM_Type.js";
+import ATM_Type from "../model/ATM_Type.js";
 import Middleware from "../config/Middleware.js"
 
 export default class ATM_Type_Controller {
