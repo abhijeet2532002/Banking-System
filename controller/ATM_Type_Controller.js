@@ -38,7 +38,7 @@ export default class ATM_Type_Controller {
     async delete_ATM_Type(req, res) {
         const returnMiddleware = new Middleware();
         try {
-            const atmType = await ATM_Type.findOneAndDelete({type : req.params.type});
+            const atmType = await ATM_Type.findOneAndDelete({ type: req.params.type });
             returnMiddleware.returnFunction(res,atmType);
         } catch (error) {
             returnMiddleware.returnFunction(res,error);
@@ -48,7 +48,7 @@ export default class ATM_Type_Controller {
     async update_ATM_Type(req, res) {
         const returnMiddleware = new Middleware();
         try {
-            const atmType = await ATM_Type.findOneAndUpdate({type : req.params.type}, req.body);
+            const atmType = await ATM_Type.findOneAndUpdate({ type: req.params.type }, req.body, { new: true });
             returnMiddleware.returnFunction(res,atmType);
         } catch (error) {
             returnMiddleware.returnFunction(res,error);

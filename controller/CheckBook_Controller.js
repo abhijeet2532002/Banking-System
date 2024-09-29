@@ -66,7 +66,7 @@ export default class CheckBook {
     async updateCheckBook(req, res) {
         const responseMiddleware = new Middleware();
         try {
-            const updateCheckBook = await Checkbook.findOneAndUpdate({ checkNo: req.params.checkNo }, req.body);
+            const updateCheckBook = await Checkbook.findOneAndUpdate({ checkNo: req.params.checkNo }, req.body,{new: true});
             responseMiddleware.returnFunction(res,updateCheckBook);
         } catch (error) {
             responseMiddleware.returnFunction(res, error);

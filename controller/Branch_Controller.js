@@ -15,7 +15,7 @@ export default class BranchController {
                     const branch = await Branch.create({ branchCode: branchCode, ...req.body });
                     location.branch.push(branch);
                     location.save();
-                    responseMiddleware.returnFunction(res, [branch,location]);
+                    responseMiddleware.returnFunction(res, [branch]);
                 }
                 else
                     responseMiddleware.returnFunction(res, "invalid location");

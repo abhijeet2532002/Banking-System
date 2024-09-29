@@ -25,7 +25,7 @@ export default class ATMCard {
                     account.ATM.push(ATM);
                     account.save();
 
-                    returnMiddleware.returnFunction(res, [account, cardType, ATM]);
+                    returnMiddleware.returnFunction(res, ATM);
                 }
                 else {
                     returnMiddleware.returnFunction(res, ["Card type not founded", account]);
@@ -42,7 +42,7 @@ export default class ATMCard {
     async get_ATM_Card(req, res) {
         const returnMiddleware = new MiddleWare();
         try {
-            returnMiddleware.returnFunction(res, await ATM_Card.findOne({ATM_NO : req.params.ATM_NO}).populate('account').populate('type'));
+            returnMiddleware.returnFunction(res, await ATM_Card.findOne({ ATM_NO: req.params.ATM_NO }).populate('account').populate('type'));
         } catch (error) {
             returnMiddleware.returnFunction(res, error);
         }
