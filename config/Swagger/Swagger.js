@@ -21,8 +21,13 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:9697' || 'https://banking-backend-4gco.onrender.com', // Your server URL
+                url: 'http://localhost:9697',
+                description: 'Local Development Server'
             },
+            {
+                url: 'https://banking-backend-4gco.onrender.com',
+                description: 'Production Server'
+            }
         ],
     },
     apis: ['./router/*.js'], // Path to your API routes

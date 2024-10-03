@@ -17,9 +17,9 @@ const branchSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Employee'
     }],
-    customer:[{
+    customer: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'customer' 
+        ref: 'customer'
     }]
 }, {
     timestamps: true
