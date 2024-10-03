@@ -55,7 +55,7 @@ export default class LocationController {
     async updateLocation(req, res) {
         const responseMiddleware = new Middleware();
         try {
-            responseMiddleware.returnFunction(res, await location.findOneAndUpdate({ pincode: req.params.pincode }, req.body));
+            responseMiddleware.returnFunction(res, await location.findOneAndUpdate({ pincode: req.params.pincode }, req.body, { new: true }));
         } catch (error) {
             responseMiddleware.returnFunction(res, ["Location not create", error]);
         }

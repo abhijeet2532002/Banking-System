@@ -1,0 +1,641 @@
+// Account
+    // Account Endpoint collection
+    /**
+     * @swagger
+     * tags:
+     *   - name: Account
+     *     description: Account management operations
+     */
+
+    // Get all accounts details
+    /**
+     * @swagger
+     * /account:
+     *   get:
+     *     tags: [Account]
+     *     summary: Get all accounts details
+     *     responses:
+     *       200:
+     *         description: A list of accounts
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/Account'  # Reference to Account schema
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Get a specific account by account number
+    /**
+     * @swagger
+     * /account/{accountNo}:
+     *   get:
+     *     tags: [Account]
+     *     summary: Get a specific account by account number
+     *     parameters:
+     *       - name: accountNo
+     *         in: path
+     *         required: true
+     *         description: The account number to retrieve
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Account details
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/Account'  # Reference to Account schema
+     *       404:
+     *         description: Account not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Create a new account
+    /**
+     * @swagger
+     * /account/create:
+     *   post:
+     *     tags: [Account]
+     *     summary: Create a new account
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/AccountCreate'  # Reference to AccountCreate schema
+     *     responses:
+     *       201:
+     *         description: Account created successfully
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/Account'  # Reference to Account schema
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+
+    // Account type
+    // Account type Endpoint API
+    /**
+     * @swagger
+     * tags:
+     *   - name: Account Type
+     *     description: Account type management operations
+     */
+
+    // Get all account types
+    /**
+     * @swagger
+     * /accountType:
+     *   get:
+     *     tags: [Account Type]
+     *     summary: Get all account types
+     *     responses:
+     *       200:
+     *         description: A list of account types
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/AccountType'  # Reference to AccountType schema
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Get a specific account type by type
+    /**
+     * @swagger
+     * /accountType/{type}:
+     *   get:
+     *     tags: [Account Type]
+     *     summary: Get a specific account type by type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The account type to retrieve
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Account type details
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/AccountType'  # Reference to AccountType schema
+     *       404:
+     *         description: Account type not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Create a new account type
+    /**
+     * @swagger
+     * /accountType/create:
+     *   post:
+     *     tags: [Account Type]
+     *     summary: Create a new account type
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/AccountTypeCreate'  # Reference to AccountTypeCreate schema
+     *     responses:
+     *       201:
+     *         description: Account type created successfully
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/AccountType'  # Reference to AccountType schema
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Update an existing account type
+    /**
+     * @swagger
+     * /accountType/update/{type}:
+     *   post:
+     *     tags: [Account Type]
+     *     summary: Update an existing account type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The account type to update
+     *         schema:
+     *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/AccountTypeUpdate'  # Reference to AccountTypeUpdate schema
+     *     responses:
+     *       200:
+     *         description: Account type updated successfully
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/AccountType'  # Reference to AccountType schema
+     *       404:
+     *         description: Account type not found
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Delete an existing account type
+    /**
+     * @swagger
+     * /accountType/delete/{type}:
+     *   get:
+     *     tags: [Account Type]
+     *     summary: Delete an existing account type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The account type to delete
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Account type deleted successfully
+     *       404:
+     *         description: Account type not found
+     *       500:
+     *         description: Internal server error
+     */
+
+
+    // ATM Type
+    // ATM type Endpoint API
+    /**
+     * @swagger
+     * tags:
+     *   - name: ATM Type
+     *     description: Operations related to ATM types
+     */
+
+    // Retrieve all ATM types
+    /**
+     * @swagger
+     * /atm_type:
+     *   get:
+     *     tags: [ATM Type]
+     *     summary: Retrieve all ATM types
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved list of ATM types
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/ATMType'
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Retrieve a specific ATM type by its type
+    /**
+     * @swagger
+     * /atm_type/{type}:
+     *   get:
+     *     tags: [ATM Type]
+     *     summary: Retrieve a specific ATM type by its type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of ATM to retrieve
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved the ATM type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMType'
+     *       404:
+     *         description: ATM type not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Create a new ATM type
+    /**
+     * @swagger
+     * /atm_type/create:
+     *   post:
+     *     tags: [ATM Type]
+     *     summary: Create a new ATM type
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/ATMTypeCreate'
+     *     responses:
+     *       201:
+     *         description: Successfully created a new ATM type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMType'
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Update an existing ATM type
+    /**
+     * @swagger
+     * /atm_type/update/{type}:
+     *   post:
+     *     tags: [ATM Type]
+     *     summary: Update an existing ATM type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of the ATM to update
+     *         schema:
+     *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/ATMTypeUpdate'
+     *     responses:
+     *       200:
+     *         description: Successfully updated the ATM type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMType'
+     *       404:
+     *         description: ATM type not found
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Delete an existing ATM type
+    /**
+     * @swagger
+     * /atm_type/delete/{type}:
+     *   get:
+     *     tags: [ATM Type]
+     *     summary: Delete an existing ATM type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of ATM to delete
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully deleted the ATM type
+     *       404:
+     *         description: ATM type not found
+     *       500:
+     *         description: Internal server error
+     */
+
+
+    // ATM Card
+    // ATM Card Endpoint
+    /**
+     * @swagger
+     * tags:
+     *   - name: ATM Card
+     *     description: Operations related to ATM cards
+     */
+
+    //  Retrieve all ATM cards
+    /**
+     * @swagger
+     * /atm_card:
+     *   get:
+     *     tags: [ATM Card]
+     *     summary: Retrieve all ATM cards
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved list of ATM cards
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/ATMCard'
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Retrieve a specific ATM card by its ATM_NO
+    /**
+     * @swagger
+     * /atm_card/{ATM_NO}:
+     *   get:
+     *     tags: [ATM Card]
+     *     summary: Retrieve a specific ATM card by its ATM_NO
+     *     parameters:
+     *       - name: ATM_NO
+     *         in: path
+     *         required: true
+     *         description: The ATM number of the card to retrieve
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved the ATM card
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMCard'
+     *       404:
+     *         description: ATM card not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Create a new ATM card
+    /**
+     * @swagger
+     * /atm_card/create:
+     *   post:
+     *     tags: [ATM Card]
+     *     summary: Create a new ATM card
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/ATMCardCreate'
+     *     responses:
+     *       201:
+     *         description: Successfully created a new ATM card
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMCard'
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Delete an existing ATM card
+    /**
+     * @swagger
+     * /atm_card/delete/{ATM_NO}:
+     *   get:
+     *     tags: [ATM Card]
+     *     summary: Delete an existing ATM card
+     *     parameters:
+     *       - name: ATM_NO
+     *         in: path
+     *         required: true
+     *         description: The ATM number of the card to delete
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully deleted the ATM card
+     *       404:
+     *         description: ATM card not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Update an existing ATM card
+    /**
+     * @swagger
+     * /atm_card/update/{ATM_NO}:
+     *   post:
+     *     tags: [ATM Card]
+     *     summary: Update an existing ATM card
+     *     parameters:
+     *       - name: ATM_NO
+     *         in: path
+     *         required: true
+     *         description: The ATM number of the card to update
+     *         schema:
+     *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/ATMCardUpdate'
+     *     responses:
+     *       200:
+     *         description: Successfully updated the ATM card
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/ATMCard'
+     *       404:
+     *         description: ATM card not found
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+
+    // Check book type
+    // Check book type endpoint
+    /**
+    * @swagger
+    * tags:
+    *   - name: CheckBookType
+    *     description: Operations related to Check Book Types
+    */
+
+    /**
+     * @swagger
+     * /check_book:
+     *   get:
+     *     tags: [CheckBookType]
+     *     summary: Retrieve all check book types
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved list of check book types
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/CheckBookType'
+     *       500:
+     *         description: Internal server error
+     */
+
+    /**
+     * @swagger
+     * /check_book/{type}:
+     *   get:
+     *     tags: [CheckBookType]
+     *     summary: Retrieve a specific check book type by its type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of the check book to retrieve
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully retrieved the check book type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/CheckBookType'
+     *       404:
+     *         description: Check book type not found
+     *       500:
+     *         description: Internal server error
+     */
+
+    /**
+     * @swagger
+     * /check_book/create:
+     *   post:
+     *     tags: [CheckBookType]
+     *     summary: Create a new check book type
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/CheckBookTypeCreate'
+     *     responses:
+     *       201:
+     *         description: Successfully created a new check book type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/CheckBookType'
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    /**
+     * @swagger
+     * /check_book/update/{type}:
+     *   post:
+     *     tags: [CheckBookType]
+     *     summary: Update an existing check book type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of the check book to update
+     *         schema:
+     *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/CheckBookTypeUpdate'
+     *     responses:
+     *       200:
+     *         description: Successfully updated the check book type
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/CheckBookType'
+     *       404:
+     *         description: Check book type not found
+     *       400:
+     *         description: Bad request
+     *       500:
+     *         description: Internal server error
+     */
+
+    // Delete an existing check book type
+    /**
+     * @swagger
+     * /check_book/delete/{type}:
+     *   get:
+     *     tags: [Check Book Type]
+     *     summary: Delete an existing check book type
+     *     parameters:
+     *       - name: type
+     *         in: path
+     *         required: true
+     *         description: The type of the check book to delete
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         description: Successfully deleted the check book type
+     *       404:
+     *         description: Check book type not found
+     *       500:
+     *         description: Internal server error
+     */

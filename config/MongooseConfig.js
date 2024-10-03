@@ -1,4 +1,8 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+const DB_URL = process.env.db_url;
+
 
 class Database {
     constructor() {
@@ -6,8 +10,7 @@ class Database {
     }
 
     connect() {
-        // mongoose.connect('mongodb+srv://ASJ:OR17J4454@cluster0.a1i0vnk.mongodb.net/Banking', {
-        mongoose.connect('mongodb://localhost:27017/Banking', {
+        mongoose.connect(DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

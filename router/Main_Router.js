@@ -21,9 +21,9 @@ router.use('/accountType', AccountType); // in Working state
 router.use('/customer', Customer);
 router.use('/account', Account);
 router.use('/atm_type', ATM_Type); //working State
-router.use('/atm_card', ATM_Card); 
-router.use('/check_type', Check_Type); 
+router.use('/atm_card', ATM_Card);
+router.use('/check_type', Check_Type);
 router.use('/check_book', Check_Book);
-router.use('/transaction',Transaction);
+router.use('/transaction', Transaction);
 
 export default router;
