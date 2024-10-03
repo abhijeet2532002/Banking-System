@@ -16,7 +16,7 @@ export default class AccountController {
                 const account = await Account.create({ accountNo: accountNo, ...req.body });
                 customer.account = account;
                 customer.save();
-                returnMiddleWare.returnFunction(res, [account, customer]);
+                returnMiddleWare.returnFunction(res, account);
             } else
                 returnMiddleWare.returnFunction(res, "Customer Or Branch Is Not Founded ...");
         } catch (error) {
