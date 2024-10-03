@@ -1,4 +1,4 @@
-const doc = () => {
+const SwaggerDOCS = () => {
 
     //  Branch
     // Branch Endpoint Collection
@@ -916,4 +916,4 @@ const doc = () => {
 
 };
 
-export default doc;
+export default SwaggerDOCS;
