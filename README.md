@@ -40,9 +40,7 @@ To get started with the Banking System project, follow these steps:
    ```bash
    npm install
 
-## Usage
-# To start the application, run the following command:
+# Usage
+## To start the application, run the following command:
   ```bash
   npm start
-
-The application will run on the default port (usually 3000). You can access the API documentation through Swagger UI by navigating to http://localhost:3000/api-docs.
