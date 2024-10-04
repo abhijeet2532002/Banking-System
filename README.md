@@ -1,124 +1,135 @@
-# Banking System
-## Project Overview
+#Banking System - Comprehensive Documentation
+Welcome to the Banking System project! This README provides a detailed overview of the project, including its features, directory structure, Swagger API documentation, and installation instructions.
 
-The Banking System project is a comprehensive software solution that facilitates various banking operations for both customers and the bank itself. This README provides an overview of the project's key features and functionalities.
+Project Overview
+The Banking System project is a full-fledged solution designed to manage core banking operations, catering to both customers and bank staff. The project encompasses multiple functionalities such as customer management, multi-branch operations, loan processing, transaction tracking, and ATM integration. The system is built using Node.js, Express.js, and MongoDB, ensuring scalability and performance.
 
-## Features
+Key Features
+1. Customer Portal
+Customers can apply for various types of ATM cards and request different checkbooks.
+A customer may have multiple ATM cards but is limited to one checkbook at a time.
+2. Multi-Branch Operations
+The bank can manage multiple branches across different locations.
+Each branch can handle multiple customers and accounts, facilitating diverse banking needs.
+3. Loan Management
+Customers can apply for various types of loans (e.g., personal loans, home loans).
+Loan approval is handled by the branch manager.
+4. Transaction Logging
+The system tracks all customer and branch transactions in real-time, ensuring accurate financial records.
+5. ATM Machine Integration
+The bank manages ATM machines for customer convenience, providing cash withdrawals, balance inquiries, and more.
+Directory Structure
+The project is organized into several folders, each handling a specific aspect of the banking system's functionality:
 
-### Customer Portal
+config/: Contains configuration files for the application (e.g., MongooseConfig.js for MongoDB setup).
+controller/: Handles the core logic for various entities like accounts, customers, ATM cards, branches, and loans.
+Example: Account_Controller.js manages all account-related operations.
+db/: Contains database models for the different entities used in the banking system (e.g., Customer.js, Branch.js, Loan.js).
+router/: Defines all the API routes for interacting with the backend (e.g., Customer_Router.js, ATM_Card_Router.js).
+index.js: The main entry point for the application.
+.env: Configuration file for environment variables like MongoDB connection strings.
+Swagger API Documentation
+Swagger is used to generate API documentation for the Banking System. This allows both developers and stakeholders to understand the API’s endpoints and test them in real time.
 
-- Customers can apply for different types of ATM cards.
-- Customers can request multiple types of checkbooks, each with varying numbers of pages.
-- A customer may possess multiple ATM cards but is limited to having only one checkbook at a time.
+Setting Up Swagger
+Install Swagger Dependencies: To use Swagger in the project, the following npm packages are required:
 
-### Multi-Branch Operations
+bash
+Copy code
+npm install swagger-ui-express swagger-jsdoc
+Swagger Configuration: The Swagger configuration file (swaggerConfig.js) has been added to the project. It defines the API’s structure, title, version, and description. Here is a sample configuration:
 
-- The bank can open multiple branches at different locations.
-- Each branch can serve and manage multiple account holders, each associated with a specific customer.
+javascript
+Copy code
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
-### Loan Management
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Banking System API',
+      version: '1.0.0',
+      description: 'API Documentation for the Banking System',
+      contact: {
+        name: 'Support Team',
+        email: 'support@bankingsystem.com',
+      },
+      servers: [{ url: 'http://localhost:3000', description: 'Local server' }],
+    },
+  },
+  apis: ['./router/*.js'],
+};
 
-- Customers have the option to apply for loans, which require approval from the branch manager.
-- Various loan types are available to meet customer's diverse financial needs.
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-### Transaction Records
+module.exports = (app) => {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+};
+Integrating Swagger: Add the following lines to your index.js file to serve Swagger docs at /api-docs:
 
-- Each branch maintains transaction records, allowing the bank to keep track of all financial activities.
-- The project implements various transaction methods to cater to different banking needs.
+javascript
+Copy code
+const swaggerConfig = require('./swaggerConfig');
+swaggerConfig(app); // Integrates Swagger
+Accessing Swagger Documentation: Once the application is running, you can access the Swagger UI by navigating to:
 
-### ATM Machine Integration
+bash
+Copy code
+http://localhost:3000/api-docs
+Benefits of Swagger Documentation
+Interactive API Testing: Swagger UI allows users to test API endpoints directly from the documentation.
+Automatic Documentation Updates: The documentation stays up to date with the codebase.
+Improved Developer Experience: It provides clear details of each route, including request parameters and responses.
+Installation & Setup
+To set up the project locally, follow the steps below:
 
-- The bank's operations include the management of ATM machines, providing customers with convenient access to their accounts.
+Clone the Repository:
 
-## Installation and Usage
+bash
+Copy code
+git clone https://github.com/username/banking-system.git
+cd banking-system
+Install Dependencies:
 
-To set up and use the Banking System project, follow the installation instructions provided in the project documentation. It includes details on system requirements, dependencies, and how to run the application.
+bash
+Copy code
+npm install
+Configure Environment Variables: Create a .env file in the root directory and add the following configuration:
 
-## Directory Structure
-Here's an overview of the directory structure of the project:
+bash
+Copy code
+MONGO_URI=mongodb://localhost:27017/banking-system
+PORT=3000
+Start the Application:
 
-- **Banking System**: The root directory.
-  - **config**: Contains configuration files for middleware and Mongoose, a popular MongoDB library.
-    - `Middleware.js`: Middleware configuration for handling requests and responses.
-    - `MongooseConfig.js`: Configuration for connecting to the MongoDB database.
-  - **controller**: Contains the core logic of the program.
-    - `Account_Controller.js`: Manages account-related operations.
-    - `Account_Type_Controller.js`: Handles account type operations.
-    - `ATM_Card_Controller.js`: Controls ATM card operations.
-    - `ATM_Type_Controller.js`: Manages ATM card type operations.
-    - `Branch_Controller.js`: Handles branch-related operations.
-    - `CheckBook_Type_Controller.js`: Manages checkbook type operations.
-    - `Customer_Controller.js`: Manages customer-related operations.
-    - `Location_Controller.js`: Handles location-related operations.
-  - **db**: Contains database models for various entities.
-    - `Account_Type.js`: Model for account types.
-    - `Account.js`: Model for bank accounts.
-    - `ATM_Card.js`: Model for ATM cards.
-    - `ATM_Machine.js`: Model for ATM machines.
-    - `ATM_Type.js`: Model for ATM card types.
-    - `Branch.js`: Model for bank branches.
-    - `Cheack_Book.js`: Model for checkbooks.
-    - `Check_Type.js`: Model for checkbook types.
-    - `Customer.js`: Model for bank customers.
-    - `Employee.js`: Model for bank employees.
-    - `Instalment.js`: Model for loan installments.
-    - `Loan_Type.js`: Model for loan types.
-    - `Loan.js`: Model for loans.
-    - `Location.js`: Model for locations.
-    - `Transaction_Log.js`: Model for transaction logs.
-    - `Transaction.js`: Model for banking transactions.
-  - **router**: Contains API routes for different operations.
-    - `Account_Router.js`: Routes for account-related operations.
-    - `Account_Type_Router.js`: Routes for account type operations.
-    - `ATM_Card_Router.js`: Routes for ATM card operations.
-    - `ATM_Type_Router.js`: Routes for ATM card type operations.
-    - `Branch_Router.js`: Routes for branch-related operations.
-    - `Customer_Router.js`: Routes for customer-related operations.
-    - `Location_Router.js`: Routes for location-related operations.
-    - `Main_Router.js`: The main router that aggregates all other routes.
-  - `index.js`: The entry point of the project.
-  - `.env`: Environment configuration file.
-  - `.gitignore`: A file specifying which files should stored information regarding to Git.
-  - `package-lock.json` and `package.json`: Dependency files specifying project dependencies.
+bash
+Copy code
+npm start
+The application will be available at http://localhost:3000.
 
-## Functionality
-- **ATM Card Management**: Customers can apply for ATM cards of different types.
-- **Checkbook Requests**: Customers can request checkbooks of various page counts.
-- **Account Management**: Customers can have multiple ATM cards and one checkbook at a time.
-- **Branch Management**: The bank can open multiple branches at different locations, each serving multiple account holders.
-- **Loan Processing**: Customers can apply for different types of loans, which are approved by the branch manager.
-- **Transaction Recording**: The system records and manages all banking transactions.
-- **ATM Machines**: The bank has ATM machines for customer use.
-- **Loan Repayment**: Customers can make loan payments, and the bank records installment facilities and payments.
+Contributing
+We welcome contributions to the Banking System project! If you'd like to contribute:
 
-## Getting Started
-To run the project, follow these steps:
+Fork the repository.
+Create a new branch (git checkout -b feature/new-feature).
+Commit your changes (git commit -m 'Add new feature').
+Push to the branch (git push origin feature/new-feature).
+Open a pull request.
+For detailed contribution guidelines, please refer to the CONTRIBUTING.md file.
 
-1. Install project dependencies using `npm install`.
-2. Configure your MongoDB connection in `.env`.
-3. Start the project with `npm start`.
+License
+This project is licensed under the MIT License. You are free to use, modify, and distribute it under the terms of the license.
 
-## Dependencies
-The project relies on various Node.js libraries and packages, which are listed in the `package.json` file.
+Acknowledgments
+We would like to thank all the contributors and users who have provided feedback and helped in the development of this project. Your contributions have been invaluable.
 
-Please refer to individual controller and router files for more detailed information about the functionality of the project.
+Enjoy exploring and interacting with the Banking System!
 
-Feel free to reach out to the project maintainers for any questions or issues.
+Feel free to reach out to us for any queries or support at support@bankingsystem.com.
 
-**Enjoy your banking experience with our Banking System project!**
 
-## Contributing
 
-Contributions to this project are welcome. If you want to contribute, please refer to the project's contribution guidelines for more information.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute it in accordance with the terms of the license.
 
-## Acknowledgments
-
-We would like to express our gratitude to all contributors and supporters of this project. Your help and feedback are invaluable in making this project a success.
-
----
-
-This README file provides an overview of the project, its features, and how to get started. Be sure to include detailed documentation, installation instructions, and other relevant information in your project's documentation.
