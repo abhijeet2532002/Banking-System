@@ -9,6 +9,7 @@ const SwaggerDOCS = () => {
     *     description: Operations related to Branch which customer want open account.
     */
 
+   // Fetch all Branch
    /**
    * @swagger
    * components:
@@ -51,6 +52,7 @@ const SwaggerDOCS = () => {
    *         - bankName
    */
 
+   // Fetch all Branch
    /**
     * @swagger
     * /branch/:
@@ -68,6 +70,7 @@ const SwaggerDOCS = () => {
     *                 $ref: '#/components/schemas/Branch'
     */
 
+   // Fetch Branch by branch code
    /**
     * @swagger
     * /branch/{branchCode}:
@@ -92,6 +95,7 @@ const SwaggerDOCS = () => {
     *         description: Branch not found
     */
 
+   // Create Branch
    /**
     * @swagger
     * /branch/create:
@@ -115,6 +119,7 @@ const SwaggerDOCS = () => {
     *         description: Invalid input
     */
 
+   // Update Branch by Branch code
    /**
     * @swagger
     * /branch/update/{branchCode}:
@@ -147,6 +152,7 @@ const SwaggerDOCS = () => {
     *         description: Invalid input
     */
 
+   // Delete Branch by Branch Code
    /**
     * @swagger
     * /branch/delete/{branchCode}:
@@ -1425,6 +1431,7 @@ const SwaggerDOCS = () => {
     *     description: Operations related to Check Books
     */
 
+    //Find all check book
    /**
     * @swagger
     * /check_book:
@@ -1444,6 +1451,7 @@ const SwaggerDOCS = () => {
     *         description: Internal server error
     */
 
+    // Find Check book by check number
    /**
     * @swagger
     * /check_book/{checkNo}:
@@ -1470,6 +1478,7 @@ const SwaggerDOCS = () => {
     *         description: Internal server error
     */
 
+   // Issue Check book
    /**
     * @swagger
     * /check_book/create:
@@ -1588,6 +1597,7 @@ const SwaggerDOCS = () => {
     *     description: Operations related to Transactions
     */
 
+   // Fetch all Transaction
    /**
     * @swagger
     * /transaction:
@@ -1607,6 +1617,7 @@ const SwaggerDOCS = () => {
     *         description: Internal server error
     */
 
+   // Fetch Transaction by transaction Id
    /**
     * @swagger
     * /transaction/{transactionNo}:
@@ -1633,6 +1644,7 @@ const SwaggerDOCS = () => {
     *         description: Internal server error
     */
 
+    // Create Transaction Like as (deposite,widrawal)
    /**
     * @swagger
     * /transaction/create:
@@ -1658,6 +1670,7 @@ const SwaggerDOCS = () => {
     *         description: Internal server error
     */
 
+   // Update Transaction History
    /**
     * @swagger
     * /transaction/update/{transactionNo}:
@@ -1691,9 +1704,6 @@ const SwaggerDOCS = () => {
     *       500:
     *         description: Internal server error
     */
-
-   
-
 
 };
 
