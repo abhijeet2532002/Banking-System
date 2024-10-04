@@ -44,3 +44,15 @@ To get started with the Banking System project, follow these steps:
 ## To start the application, run the following command:
   ```bash
   npm start
+   
+
+### Complete Example:
+Incorporating this into the README, your **Usage** section would look like this:
+
+```markdown
+## Usage
+
+To start the application, run the following command in your terminal:
+
+```bash
+npm start
